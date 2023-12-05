@@ -1,0 +1,84 @@
+<!-- create-event.component.html -->
+<div class="event-container">
+    <mat-card>
+      <mat-card-header>
+        <!-- Título del formulario -->
+        <mat-card-title>Crear Evento</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (submit)="onFormSubmit()">
+          <mat-grid-list cols="1" rowHeight="100px">
+  
+            <!-- Nombre del Evento -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre del Evento</mat-label>
+                <input matInput placeholder="Nombre del Evento" [(ngModel)]="event.name" name="name" required>
+              </mat-form-field>
+            </mat-grid-tile>
+  
+            <!-- Descripción Corta -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Descripción Corta</mat-label>
+                <input matInput placeholder="Descripción Corta" [(ngModel)]="event.shortDescription" name="shortDescription" required>
+              </mat-form-field>
+            </mat-grid-tile>
+  
+            <!-- Descripción Larga -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Descripción Larga</mat-label>
+                <textarea matInput placeholder="Descripción Larga" [(ngModel)]="event.longDescription" name="longDescription"></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+  
+            <!-- Fecha y Hora del Evento -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Fecha del Evento</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="event.dateTime" name="dateTime" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </mat-grid-tile>
+  
+            <!-- Organizador -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Organizador</mat-label>
+                <input matInput placeholder="Organizador" [(ngModel)]="event.organizer" name="organizer" required>
+              </mat-form-field>
+            </mat-grid-tile>
+  
+            <!-- Ubicación -->
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Ubicación</mat-label>
+                <input matInput placeholder="Ubicación" [(ngModel)]="event.location" name="location" required>
+              </mat-form-field>
+            </mat-grid-tile>
+
+             <!-- Segun Estado -->
+             <mat-grid-tile>
+                <mat-form-field>
+                    <mat-label>Estado</mat-label>
+                    <select matNativeControl required>
+                      <option value="current">En curso</option>
+                      <option value="finished">Finalizado</option>
+                    </select>
+                  </mat-form-field>
+              </mat-grid-tile>
+  
+            
+          </mat-grid-list>
+  
+          <div class="form-buttons">
+            <button mat-raised-button color="primary" type="submit">Guardar Evento</button>
+            <button mat-raised-button color="warn" (click)="cancel()">Volver</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

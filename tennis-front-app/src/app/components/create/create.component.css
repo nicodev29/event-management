@@ -1,0 +1,23 @@
+/* Suponiendo que este estilo está en create-event.component.css */
+.event-container {
+    background-color: white; /* Fondo blanco */
+    padding: 20px; /* Espacio alrededor del contenido del formulario */
+  }
+  
+  /* Estilos para centrar los botones */
+  .form-buttons {
+    text-align: center; /* Centra los botones dentro de este contenedor */
+    margin-top: 20px; /* Espacio por encima de los botones */
+  }
+  
+  button {
+    margin: 0 10px; /* Espacio horizontal entre botones */
+  }
+  
+  mat-card-title {
+    text-align: center;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacio debajo del título */
+  }
+    /* Estilos para el título del formulario */

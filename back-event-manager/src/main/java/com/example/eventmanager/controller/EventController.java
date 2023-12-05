@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("/api/events")
 public class EventController {
 
@@ -33,7 +33,7 @@ public class EventController {
         return ResponseEntity.ok(event);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<EventDTO> createEvent(@RequestBody EventDTO eventDTO) {
         EventDTO newEvent = eventService.createEvent(eventDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newEvent);
