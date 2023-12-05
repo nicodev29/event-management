@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+//@CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("/api/events")
 public class EventController {
 
@@ -19,7 +19,9 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping
+
+
+    @GetMapping("/all")
     public ResponseEntity<List<EventDTO>> getAllEvents() {
         List<EventDTO> events = eventService.getAllEvents();
         return ResponseEntity.ok(events);

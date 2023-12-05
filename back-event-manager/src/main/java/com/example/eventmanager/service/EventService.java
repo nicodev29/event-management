@@ -6,10 +6,12 @@ import com.example.eventmanager.mapper.EventMapper;
 import com.example.eventmanager.model.Event;
 import com.example.eventmanager.repository.EventRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +20,7 @@ public class EventService {
 
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
+    private static final Logger log = LoggerFactory.getLogger(EventService.class);
 
     @Autowired
     public EventService(EventRepository eventRepository, EventMapper eventMapper) {
@@ -41,13 +44,12 @@ public class EventService {
 
     public EventDTO createEvent(EventDTO eventDTO) {
         Event event = eventMapper.eventDTOToEvent(eventDTO);
-
-        try{
+        try {
             event = eventRepository.save(event);
             return eventMapper.eventToEventDTO(event);
-
-        }catch (Exception e){
-            throw new RuntimeException("Event not found");
+        } catch (Exception e) {
+            log.error("Error al crear el evento: {}", e.getMessage(), e);
+            throw new RuntimeException("Error al crear el evento: " + e.getMessage());
         }
     }
 
@@ -59,7 +61,7 @@ public class EventService {
             event.setName(eventDTO.getName());
             event.setShortDescription(eventDTO.getShortDescription());
             event.setLongDescription(eventDTO.getLongDescription());
-            event.setDateTime(eventDTO.getDateTime());
+            event.setDateTime(LocalDateTime.now());
             event.setOrganizer(eventDTO.getOrganizer());
             event.setLocation(eventDTO.getLocation());
             event.setStatus(eventDTO.getStatus());
