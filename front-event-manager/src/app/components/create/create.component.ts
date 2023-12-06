@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { EventService } from 'src/app/event.service';
+import { EventService } from 'src/app/services/event.service';
 import { EventStatus } from 'src/app/models/event.model';
 
 @Component({

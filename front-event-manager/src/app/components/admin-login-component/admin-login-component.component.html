@@ -1,0 +1,25 @@
+<div class="event-container">
+    <mat-card>
+        <mat-card-content>
+
+           
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="username">
+                </mat-form-field>
+
+         
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [(ngModel)]="password" type="password">
+                </mat-form-field>
+        
+
+                <div class="form-buttons">
+                    <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+                    <button mat-raised-button color="warn" (click)="cancel()">Volver</button>
+                </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

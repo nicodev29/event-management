@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrentEventComponent } from './components/current-event/current-event.component';
 import { CreateComponent } from './components/create/create.component';
 import { StatusEventComponent } from './components/status-event/status-event.component';
+import { AdminLoginComponentComponent } from './components/admin-login-component/admin-login-component.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { StatusEventComponent } from './components/status-event/status-event.com
     CurrentEventComponent,
     CreateComponent,
     StatusEventComponent,
+    AdminLoginComponentComponent,
   ],
   imports: [
     ReactiveFormsModule,
