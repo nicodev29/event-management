@@ -11,6 +11,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,7 +20,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/api/events/**").permitAll() // Rutas públicas, accesibles sin autenticación
+                        .requestMatchers("/api/events/create").permitAll()
+                        .requestMatchers("/api/events/public").permitAll()// Rutas públicas, accesibles sin autenticación
                 )
                 .httpBasic(Customizer.withDefaults());
         return http.build();
