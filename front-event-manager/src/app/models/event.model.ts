@@ -10,6 +10,8 @@ export class Event {
     status: EventStatus = EventStatus.current; // Por defecto, un evento nuevo es actual
   }
   
-  // Si EventStatus es un enumerado, defínelo también
-  export enum EventStatus {
-    current,finished  }
+// Si EventStatus es un enumerado, defínelo también
+
+export enum EventStatus {
+  current, finished,
+}

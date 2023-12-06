@@ -9,8 +9,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppRoutingModule } from './app.routing';
@@ -29,6 +30,8 @@ import { StatusEventComponent } from './components/status-event/status-event.com
     StatusEventComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    MatSnackBarModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
