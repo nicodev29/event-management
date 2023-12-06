@@ -1,0 +1,32 @@
+.event-container {
+    background-color: white; 
+    padding: 20px;
+  }
+  
+  .form-buttons {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  
+  button {
+    margin: 0 10px; 
+  }
+  
+  mat-card-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px; 
+  }
+
+  /* create.component.css */
+.event-form {
+  /* Tus estilos para el formulario */
+  max-width: 600px;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+  /* Otros estilos que quieras aplicar a los campos de formulario */
+}

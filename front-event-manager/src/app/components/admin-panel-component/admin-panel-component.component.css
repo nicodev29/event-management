@@ -1,0 +1,37 @@
+.form-buttons {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  
+  button {
+    margin: 0 10px; 
+  }
+
+  /* styles.css */
+.app-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.login-button {
+    padding: 10px 35px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.welcome-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.welcome-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

@@ -25,9 +25,8 @@ export class CreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Inicializa el FormGroup utilizando FormBuilder
     this.eventForm = this.fb.group({
-      name: ['', Validators.required], // Campo requerido
+      name: ['', Validators.required],
       shortDescription: ['', Validators.required],
       longDescription: [''],
       dateTime: ['', Validators.required],
@@ -37,15 +36,10 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  // Modifica onFormSubmit para trabajar con FormGroup
   onFormSubmit() {
 
-    console.log(this.eventForm.value); // Imprime los valores del formulario
-    console.log(this.eventForm.valid); // Imprime el estado de validez del formulario
-    
     if (this.eventForm.valid) {
 
-      console.log('Sending this data to the server:', this.eventForm.value);
       this.eventService.createEvent(this.eventForm.value).subscribe({
         next: (res) => {
           // Abre una snackbar con un mensaje de confirmación
@@ -55,9 +49,8 @@ export class CreateComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['snackbar-success']
           });
-          // Redirecciona o resetea el formulario
           this.eventForm.reset();
-          this.router.navigate(['']); // O cualquier ruta que desees
+          this.router.navigate(['admin']); 
         },
         error: (err) => {
           // Abre una snackbar con un mensaje de error
@@ -81,6 +74,6 @@ export class CreateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['']); // Redirige a la página principal o adecuada
+    this.router.navigate(['admin']); // Redirige a la página principal o adecuada
   }
 }

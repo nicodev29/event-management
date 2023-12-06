@@ -1,8 +1,6 @@
-<!-- current-event.component.html -->
 <div class="event-table-container">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       
-      <!-- Columna de Nombre -->
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
         <mat-cell *matCellDef="let event"> {{event.name}} </mat-cell>
@@ -38,19 +36,24 @@
         <mat-cell *matCellDef="let event"> {{event.location}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="inscription">
-        <mat-header-cell *matHeaderCellDef> Inscribirme </mat-header-cell>
-        <mat-cell *matCellDef="let event"> {{event.inscription}} </mat-cell>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let event">
+          <button  mat-icon-button color="accent" (click)="openEditDialog(event)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button  mat-icon-button color="accent" (click)="deleteEvent(event.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
       </ng-container>
 
 
-      
-      <!-- Columna de Fecha -->
-      <!-- Repite para las otras columnas como fecha, organizador, ubicación, etc. -->
-  
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       
+     
+
     </mat-table>
 
     <div class="form-buttons">

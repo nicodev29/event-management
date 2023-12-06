@@ -18,7 +18,7 @@ export class WelcomeComponent {
     this.router.navigate(['/status-event']);
   }
   onActual() {
-    this.router.navigate(['/current']);
+    this.router.navigate(['/user']);
   }
 
   onCreate() {

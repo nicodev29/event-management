@@ -16,15 +16,12 @@ export class AdminLoginComponentComponent {
   constructor(private adminService: AdminService, private router: Router) {}
 
   onLogin(): void {
-    console.log('Intentando iniciar sesión');
-    console.log('Usuario:', this.username);
-    console.log('Contraseña:', this.password);
     const success = this.adminService.login(this.username, this.password);
     this.loginFailed = !success;
     if (success) {
       console.log('Login exitoso');
       
-      this.router.navigate(['edit-event']);
+      this.router.navigate(['admin']);
     }
   }
 

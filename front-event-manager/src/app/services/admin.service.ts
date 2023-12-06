@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AdminService {
-  private isAdminLoggedIn = false;
+  private isAdminLoggedIn: boolean;
 
-  constructor() {}
+  constructor() {
+    this.isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
+  }
 
   login(username: string, password: string): boolean {
-    // Aquí validas el nombre de usuario y la contraseña
     if (username === 'admin' && password === 'admin') {
       this.isAdminLoggedIn = true;
+      localStorage.setItem('isAdminLoggedIn', 'true');
       return true;
     }
     return false;
@@ -22,6 +21,7 @@ export class AdminService {
 
   logout(): void {
     this.isAdminLoggedIn = false;
+    localStorage.removeItem('isAdminLoggedIn');
   }
 
   isAdmin(): boolean {

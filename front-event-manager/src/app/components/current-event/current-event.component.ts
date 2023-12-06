@@ -16,6 +16,7 @@ export class CurrentEventComponent implements OnInit {
     'dateTime',
     'organizer',
     'location',
+    'inscription',
   ]; // Ajusta según tus necesidades
   dataSource: Event[] = [];
 
@@ -29,6 +30,8 @@ export class CurrentEventComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['']); // Redirige a la página principal o adecuada
+
+    this.router.navigate(['admin']);
+
   }
 }
