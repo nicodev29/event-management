@@ -1,10 +1,6 @@
 <!-- create-event.component.html -->
 <div class="event-container">
   <mat-card>
-    <mat-card-header>
-      <!-- Título del formulario -->
-
-    </mat-card-header>
     <mat-card-content>
       <form [formGroup]="eventForm" (ngSubmit)="onFormSubmit()">
 
@@ -23,9 +19,9 @@
         <!-- Descripción Larga -->
 
         <mat-form-field appearance="fill">
-          <mat-label>Descripcion breve</mat-label>
+          <mat-label>Detalles importantes</mat-label>
           <input matInput formControlName="longDescription" placeholder="Nombre del Evento" required>
-          <mat-error *ngIf="eventForm.controls['longDescription'].invalid">Nombre del evento es requerido.</mat-error>
+          <mat-error *ngIf="eventForm.controls['longDescription'].invalid">Los detalles son requeridos.</mat-error>
         </mat-form-field>
 
           <!-- Descripción Corta -->
@@ -33,7 +29,7 @@
           <mat-form-field appearance="fill">
             <mat-label>Descripcion breve</mat-label>
             <input matInput formControlName="shortDescription" placeholder="Nombre del Evento" required>
-            <mat-error *ngIf="eventForm.controls['shortDescription'].invalid">Nombre del evento es requerido.</mat-error>
+            <mat-error *ngIf="eventForm.controls['shortDescription'].invalid">La descripcion es requerida.</mat-error>
           </mat-form-field>
 
         <!-- Organizador -->
@@ -41,7 +37,7 @@
         <mat-form-field appearance="fill">
           <mat-label>Organizador</mat-label>
           <input matInput formControlName="organizer" placeholder="Nombre del Evento" required>
-          <mat-error *ngIf="eventForm.controls['organizer'].invalid">Nombre del evento es requerido.</mat-error>
+          <mat-error *ngIf="eventForm.controls['organizer'].invalid">El organizador es requerido.</mat-error>
         </mat-form-field>
 
 
@@ -50,7 +46,7 @@
         <mat-form-field appearance="fill">
           <mat-label>Ubicacion</mat-label>
           <input matInput formControlName="location" placeholder="Nombre del Evento" required>
-          <mat-error *ngIf="eventForm.controls['location'].invalid">Nombre del evento es requerido.</mat-error>
+          <mat-error *ngIf="eventForm.controls['location'].invalid">La ubicacion es requerida.</mat-error>
         </mat-form-field>
 
 
@@ -69,12 +65,11 @@
 
         <mat-form-field>
           <mat-label>Estado</mat-label>
-          <select matNativeControl required>
-            <option value="current">Borrador</option>
-            <option value="finished">Publicado</option>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="eventForm.controls['status'].hasError('required')">El estado es requerido.</mat-error>
+          <select matNativeControl formControlName="status" required>
+            <option [value]="EventStatus.DRAFT">Borrador</option>
+            <option [value]="EventStatus.PUBLISHED">Publicado</option>
           </select>
+          
         </mat-form-field>
 
 

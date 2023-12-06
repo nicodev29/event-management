@@ -1,6 +1,7 @@
 package com.example.eventmanager.controller;
 
 import com.example.eventmanager.DTO.EventDTO;
+import com.example.eventmanager.model.Event;
 import com.example.eventmanager.service.EventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,10 @@ public class EventController {
         this.eventService = eventService;
     }
 
-
+    @GetMapping("/public")
+    public List<Event> getPublicEvents() {
+        return eventService.getPublicEvents();
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<EventDTO>> getAllEvents() {

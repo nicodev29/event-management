@@ -16,6 +16,6 @@ public interface EventRepository extends JpaRepository<Event, Long>{
 
     @Query("SELECT e FROM Event e WHERE e.status = :status AND e.dateTime >= :dateTime AND e.name LIKE %:name%")
     List<Event> findEventsByStatusAndDateTimeAndTitle(EventStatus status, LocalDateTime dateTime, String name);
-
+    List<Event> findByStatus(EventStatus status);
 
 }

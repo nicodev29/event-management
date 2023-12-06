@@ -7,11 +7,11 @@ export class Event {
     dateTime: Date = new Date();
     organizer: string = "";
     location: string = "";
-    status: EventStatus = EventStatus.current; // Por defecto, un evento nuevo es actual
+    status: EventStatus = EventStatus.PUBLISHED; // Por defecto, un evento nuevo es actual
   }
   
 // Si EventStatus es un enumerado, defínelo también
 
 export enum EventStatus {
-  current, finished,
+  DRAFT, PUBLISHED
 }

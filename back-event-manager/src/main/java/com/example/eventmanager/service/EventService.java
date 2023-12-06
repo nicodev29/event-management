@@ -4,6 +4,7 @@ package com.example.eventmanager.service;
 import com.example.eventmanager.DTO.EventDTO;
 import com.example.eventmanager.mapper.EventMapper;
 import com.example.eventmanager.model.Event;
+import com.example.eventmanager.model.EventStatus;
 import com.example.eventmanager.repository.EventRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 public class EventService {
@@ -80,6 +82,10 @@ public class EventService {
             throw new EntityNotFoundException("Event not found with ID: " + id);
         }
         eventRepository.deleteById(id);
+    }
+
+    public List<Event> getPublicEvents() {
+        return eventRepository.findByStatus(EventStatus.PUBLISHED);
     }
 
 }

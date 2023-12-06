@@ -10,7 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -35,6 +35,7 @@ import { StatusEventComponent } from './components/status-event/status-event.com
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    MatTableModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,

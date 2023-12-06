@@ -14,13 +14,14 @@ export class CreateComponent implements OnInit {
 
   // Define un FormGroup para manejar el formulario
   eventForm: FormGroup = new FormGroup({});
+  EventStatus = EventStatus; // Inyecta el enum EventStatus
   
-
   constructor(
     private fb: FormBuilder, // Inyecta FormBuilder
     private eventService: EventService,
     private router: Router,
-    private snackBar: MatSnackBar 
+    private snackBar: MatSnackBar,
+     // Inyecta el enum EventStatus 
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class CreateComponent implements OnInit {
       dateTime: ['', Validators.required],
       organizer: ['', Validators.required],
       location: ['', Validators.required],
-      status: [EventStatus.current, Validators.required] // Suponiendo que PENDING es un valor del enum EventStatus
+      status: [this.EventStatus.PUBLISHED, Validators.required]
     });
   }
 

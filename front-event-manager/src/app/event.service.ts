@@ -14,4 +14,10 @@ export class EventService {
   createEvent(event: Event): Observable<any> {
     return this.http.post(this.apiUrl + '/create', event);
   }
+
+  getEventsByStatus(status: string) {
+    return this.http.get<Event[]>(`${this.apiUrl}/public`);
+  }
+  
+
 }

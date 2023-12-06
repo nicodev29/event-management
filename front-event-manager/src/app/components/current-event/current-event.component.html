@@ -1,1 +1,53 @@
-<p>current-event works!</p>
+<!-- current-event.component.html -->
+<div class="event-table-container">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- Columna de Nombre -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.name}} </mat-cell>
+      </ng-container>
+
+  
+      <ng-container matColumnDef="shortDescription">
+        <mat-header-cell *matHeaderCellDef> Descripcion breve </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.shortDescription}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="longDescription">
+        <mat-header-cell *matHeaderCellDef> Descripcion larga </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.longDescription}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.dateTime}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="organizer">
+        <mat-header-cell *matHeaderCellDef> Organizador </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.organizer}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef> Ubicacion </mat-header-cell>
+        <mat-cell *matCellDef="let event"> {{event.location}} </mat-cell>
+      </ng-container>
+
+      <!-- Columna de Fecha -->
+      <!-- Repite para las otras columnas como fecha, organizador, ubicación, etc. -->
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      
+    </mat-table>
+
+    <div class="form-buttons">
+        <button mat-raised-button color="warn" (click)="cancel()">Volver</button>
+      </div>
+  </div>
+  
