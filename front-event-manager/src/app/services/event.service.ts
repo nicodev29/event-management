@@ -32,4 +32,12 @@ export class EventService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
+  getPublishedFutureEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.apiUrl}/enroll`);
+  }
+  
+  enrollInEvent(eventId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/events/enroll/${eventId}`, {});
+  }
+
 }

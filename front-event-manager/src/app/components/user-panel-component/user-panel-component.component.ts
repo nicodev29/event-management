@@ -16,6 +16,6 @@ export class UserPanelComponentComponent {
     this.router.navigate(['']);
   }
   onActual() {
-    this.router.navigate(['/current']);
+    this.router.navigate(['user-event']);
   }
 }

@@ -88,4 +88,13 @@ public class EventService {
         return eventRepository.findByStatus(EventStatus.PUBLISHED);
     }
 
+    public List<EventDTO> getPublishedFutureEvents() {
+        LocalDateTime now = LocalDateTime.now();
+        List<Event> events = eventRepository.findByStatusAndDateTimeAfter(EventStatus.PUBLISHED, now);
+        return events.stream()
+                .map(eventMapper::eventToEventDTO)
+                .collect(Collectors.toList());
+    }
+
+
 }

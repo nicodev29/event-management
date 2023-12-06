@@ -55,4 +55,9 @@ public class EventController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/enroll")
+    public ResponseEntity<List<EventDTO>> getPublishedFutureEvents() {
+        List<EventDTO> events = eventService.getPublishedFutureEvents();
+        return ResponseEntity.ok(events);
+    }
 }

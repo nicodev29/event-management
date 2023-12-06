@@ -43,6 +43,17 @@
         <mat-cell *matCellDef="let event"> {{event.inscription}} </mat-cell>
       </ng-container>
 
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Inscribirme </mat-header-cell>
+        <mat-cell *matCellDef="let event">
+          <button  mat-icon-button color="accent" (click)="enroll(event)">
+            <mat-icon>edit</mat-icon>
+            </button>
+        </mat-cell>
+      </ng-container>
+
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       

@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { EditEventDialogComponentComponent } from './components/edit-event-dialog-component/edit-event-dialog-component.component';
 import { StatusEventComponent } from './components/status-event/status-event.component';
+import { UserEventsComponent } from './components/user-events/user-events.component';
 
 
 
@@ -43,7 +44,8 @@ import { StatusEventComponent } from './components/status-event/status-event.com
     UserPanelComponentComponent,
     AllEventsComponent,
     ConfirmDialogComponent,
-    EditEventDialogComponentComponent
+    EditEventDialogComponentComponent,
+    UserEventsComponent
     
   ],
   imports: [
