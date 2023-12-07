@@ -30,11 +30,8 @@ public class EventService {
         this.eventMapper = eventMapper;
     }
 
-    public List<EventDTO> getAllEvents() {
-        List<Event> events = eventRepository.findAll();
-        return events.stream()
-                .map(eventMapper::eventToEventDTO)
-                .collect(Collectors.toList());
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
     }
 
 
@@ -45,10 +42,24 @@ public class EventService {
     }
 
     public EventDTO createEvent(EventDTO eventDTO) {
-        Event event = eventMapper.eventDTOToEvent(eventDTO);
+
+        Event event = new Event();
+        event.setName(eventDTO.getName());
+        event.setShortDescription(eventDTO.getShortDescription());
+        event.setLongDescription(eventDTO.getLongDescription());
+        event.setDateTime(eventDTO.getDateTime());
+        event.setOrganizer(eventDTO.getOrganizer());
+        event.setLocation(eventDTO.getLocation());
+        event.setStatus(eventDTO.getStatus());
+        event.setIsEnrolled(eventDTO.isEnrolled());
+
         try {
+
             event = eventRepository.save(event);
-            return eventMapper.eventToEventDTO(event);
+
+            eventDTO.setId(event.getId());
+            return eventDTO;
+
         } catch (Exception e) {
             log.error("Error al crear el evento: {}", e.getMessage(), e);
             throw new RuntimeException("Error al crear el evento: " + e.getMessage());
@@ -88,12 +99,9 @@ public class EventService {
         return eventRepository.findByStatus(EventStatus.PUBLISHED);
     }
 
-    public List<EventDTO> getPublishedFutureEvents() {
+    public List<Event> getPublishedFutureEvents() {
         LocalDateTime now = LocalDateTime.now();
-        List<Event> events = eventRepository.findByStatusAndDateTimeAfter(EventStatus.PUBLISHED, now);
-        return events.stream()
-                .map(eventMapper::eventToEventDTO)
-                .collect(Collectors.toList());
+        return eventRepository.findByStatusAndDateTimeAfter(EventStatus.PUBLISHED, now);
     }
 
     public void enrollEvent(Long eventId) {

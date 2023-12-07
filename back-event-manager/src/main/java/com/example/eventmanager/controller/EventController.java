@@ -26,8 +26,8 @@ public class EventController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<EventDTO>> getAllEvents() {
-        List<EventDTO> events = eventService.getAllEvents();
+    public ResponseEntity<List<Event>> getAllEvents() {
+        List<Event> events = eventService.getAllEvents();
         return ResponseEntity.ok(events);
     }
 
@@ -56,8 +56,8 @@ public class EventController {
     }
 
     @GetMapping("/enroll")
-    public ResponseEntity<List<EventDTO>> getPublishedFutureEvents() {
-        List<EventDTO> events = eventService.getPublishedFutureEvents();
+    public ResponseEntity<List<Event>> getPublishedFutureEvents() {
+        List<Event> events = eventService.getPublishedFutureEvents();
         return ResponseEntity.ok(events);
     }
 
