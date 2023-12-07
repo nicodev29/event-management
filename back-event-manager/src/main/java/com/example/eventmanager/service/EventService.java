@@ -30,17 +30,30 @@ public class EventService {
         this.eventMapper = eventMapper;
     }
 
+    /**
+     * Retrieves all events from the event repository.
+     * @return
+     */
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
 
-
+    /**
+     * Retrieves all events by Id from the event repository.
+     * @param id
+     * @return
+     */
     public EventDTO getEventById(Long id) {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
         return eventMapper.eventToEventDTO(event);
     }
 
+    /**
+     * Creates a new event in the event repository.
+     * @param eventDTO
+     * @return
+     */
     public EventDTO createEvent(EventDTO eventDTO) {
 
         Event event = new Event();
@@ -56,7 +69,6 @@ public class EventService {
         try {
 
             event = eventRepository.save(event);
-
             eventDTO.setId(event.getId());
             return eventDTO;
 
@@ -66,6 +78,12 @@ public class EventService {
         }
     }
 
+    /**
+     * Updates an event with the given ID and returns the updated event.
+     * @param id
+     * @param eventDTO
+     * @return
+     */
     public EventDTO updateEvent(Long id, EventDTO eventDTO) {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
@@ -88,6 +106,10 @@ public class EventService {
         }
     }
 
+    /**
+     * Deletes an event with the given ID.
+     * @param id
+     */
     public void deleteEvent(Long id) {
         if (!eventRepository.existsById(id)) {
             throw new EntityNotFoundException("Event not found with ID: " + id);
@@ -95,15 +117,27 @@ public class EventService {
         eventRepository.deleteById(id);
     }
 
+    /**
+     * Retrieves all events from the event repository with the given status.
+     * @return
+     */
     public List<Event> getPublicEvents() {
         return eventRepository.findByStatus(EventStatus.PUBLISHED);
     }
 
+    /**
+     * Retrieves all events from the event repository with the given status and date time after now.
+     * @return
+     */
     public List<Event> getPublishedFutureEvents() {
         LocalDateTime now = LocalDateTime.now();
         return eventRepository.findByStatusAndDateTimeAfter(EventStatus.PUBLISHED, now);
     }
 
+    /**
+     * Retrieves all events who users can enroll from the event repository.
+     * @param eventId
+     */
     public void enrollEvent(Long eventId) {
         System.out.println("Inscribiendo al evento con ID: " + eventId);
         Event event = eventRepository.findById(eventId).orElseThrow(() -> new RuntimeException("Evento no encontrado"));
@@ -111,6 +145,10 @@ public class EventService {
         eventRepository.save(event);
     }
 
+    /**
+     * Retrieves all events whit user enrolled from the event repository.
+     * @return
+     */
     public List<Event> getEnrolledEvents() {
         return eventRepository.findByIsEnrolled(true);
     }

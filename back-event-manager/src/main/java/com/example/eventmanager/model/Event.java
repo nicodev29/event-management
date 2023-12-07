@@ -3,6 +3,7 @@ package com.example.eventmanager.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -37,12 +38,14 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventStatus status;
 
+    @Setter
     @Column(name = "is_enrolled", nullable = false)
     private boolean isEnrolled = false;
 
     public boolean getIsEnrolled() {
         return isEnrolled;
     }
+
     public void setIsEnrolled(boolean isEnrolled) {
         this.isEnrolled = isEnrolled;
     }
