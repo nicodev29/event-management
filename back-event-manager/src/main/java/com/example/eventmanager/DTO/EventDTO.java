@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class EventDTO {
 
-    public EventDTO(Long id, String name, String shortDescription, String longDescription, LocalDateTime dateTime, String organizer, String location, EventStatus status) {
+    public EventDTO(Long id, String name, String shortDescription, String longDescription, LocalDateTime dateTime, String organizer, String location, EventStatus status, boolean isEnrolled) {
         this.id = id;
         this.name = name;
         this.shortDescription = shortDescription;
@@ -17,6 +17,7 @@ public class EventDTO {
         this.organizer = organizer;
         this.location = location;
         this.status = status;
+        this.isEnrolled = isEnrolled;
     }
     public EventDTO() {
     }
@@ -29,4 +30,5 @@ public class EventDTO {
     private String organizer;
     private String location;
     private EventStatus status;
+    private boolean isEnrolled = false;
 }

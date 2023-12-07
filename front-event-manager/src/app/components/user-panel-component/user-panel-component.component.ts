@@ -10,7 +10,7 @@ export class UserPanelComponentComponent {
   constructor(private router: Router) {}
 
   enrollment() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['enrolled-events']);
   }
   cancel() {
     this.router.navigate(['']);

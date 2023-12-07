@@ -16,6 +16,11 @@ export class EventService {
     return this.http.post(this.apiUrl + '/create', event);
   }
 
+  enrollInEvent(eventId: number): Observable<any> {
+    console.log("Enviando solicitud de inscripción para el evento con ID:", eventId);
+    return this.http.post(`${this.apiUrl}/enroll/${eventId}`, null);
+  }
+
   getEventsByStatus(status: string) {
     return this.http.get<Event[]>(`${this.apiUrl}/public`);
   }
@@ -28,16 +33,17 @@ export class EventService {
     return this.http.put<Event>(`${this.apiUrl}/${id}`, event);
   }
 
-  deleteEvent(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-
   getPublishedFutureEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`${this.apiUrl}/enroll`);
   }
   
-  enrollInEvent(eventId: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/events/enroll/${eventId}`, {});
+
+  deleteEvent(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
+  getEnrolledEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.apiUrl + '/events/enrolled');
   }
 
 }

@@ -10,6 +10,7 @@ import { AdminGuard } from './admin.guard';
 import { AllEventsComponent } from './components/all-events/all-events.component';
 import { StatusEventComponent } from './components/status-event/status-event.component';
 import { UserEventsComponent } from './components/user-events/user-events.component';
+import { EnrolledEventsComponent } from './components/enrolled-events/enrolled-events.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -23,6 +24,9 @@ const routes: Routes = [
   { path: 'edit-event', component: AdminLoginComponentComponent, canActivate: [AdminGuard] },
   { path: 'get-all', component: AllEventsComponent, canActivate: [AdminGuard] },
   { path: 'user-event', component: UserEventsComponent},
+  { path: 'enrolled-events', component: EnrolledEventsComponent},
+
+
 
 ];
   // otras rutas

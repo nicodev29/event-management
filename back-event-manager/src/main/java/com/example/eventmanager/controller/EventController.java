@@ -60,4 +60,18 @@ public class EventController {
         List<EventDTO> events = eventService.getPublishedFutureEvents();
         return ResponseEntity.ok(events);
     }
+
+    @PostMapping("/enroll/{eventId}")
+    public ResponseEntity<?> enrollEvent(@PathVariable Long eventId) {
+        System.out.println("Recibida solicitud de inscripción para el evento con ID: " + eventId);
+        eventService.enrollEvent(eventId);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/events/enrolled")
+    public ResponseEntity<List<Event>> getEnrolledEvents() {
+        List<Event> enrolledEvents = eventService.getEnrolledEvents();
+        return ResponseEntity.ok(enrolledEvents);
+    }
+
 }

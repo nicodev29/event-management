@@ -96,5 +96,15 @@ public class EventService {
                 .collect(Collectors.toList());
     }
 
+    public void enrollEvent(Long eventId) {
+        System.out.println("Inscribiendo al evento con ID: " + eventId);
+        Event event = eventRepository.findById(eventId).orElseThrow(() -> new RuntimeException("Evento no encontrado"));
+        event.setIsEnrolled(true);
+        eventRepository.save(event);
+    }
+
+    public List<Event> getEnrolledEvents() {
+        return eventRepository.findByIsEnrolled(true);
+    }
 
 }

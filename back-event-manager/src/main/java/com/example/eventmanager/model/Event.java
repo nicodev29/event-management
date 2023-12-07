@@ -37,6 +37,13 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventStatus status;
 
+    @Column(name = "is_enrolled", nullable = false)
+    private boolean isEnrolled = false;
 
-
+    public boolean getIsEnrolled() {
+        return isEnrolled;
+    }
+    public void setIsEnrolled(boolean isEnrolled) {
+        this.isEnrolled = isEnrolled;
+    }
 }

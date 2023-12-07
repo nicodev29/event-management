@@ -24,6 +24,9 @@ public class SecurityConfig {
                         requestMatchers("/api/events/public").permitAll().
                         requestMatchers("/api/events/all").permitAll().
                         requestMatchers("/api/events/enroll").permitAll().
+                        requestMatchers("/api/events/enroll/**").permitAll().
+                        requestMatchers("/api/events/enrolled-events").permitAll().
+                        requestMatchers("/api/events/enrolled").permitAll().
                         requestMatchers("/api/events/**").permitAll()
                 )
                 .httpBasic(Customizer.withDefaults());

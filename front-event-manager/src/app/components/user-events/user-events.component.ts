@@ -39,12 +39,12 @@ export class UserEventsComponent {
   }
 
   cancel() {
-
     this.router.navigate(['user']);
-
   }
 
   enroll(eventId: number): void {
+
+    console.log("id es" + eventId)
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
@@ -52,7 +52,11 @@ export class UserEventsComponent {
     });
   
     dialogRef.afterClosed().subscribe((result: boolean) => {
+      console.log("id es" + eventId)
       if (result) {
+        this.eventService.enrollInEvent(eventId).subscribe(() => {
+        });
+        
       }
     });
   }

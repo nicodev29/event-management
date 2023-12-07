@@ -1,6 +1,6 @@
 <!-- current-event.component.html -->
 <div class="event-table-container">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <mat-table [dataSource]="enrolledEvents" class="mat-elevation-z8">
       
       <!-- Columna de Nombre -->
       <ng-container matColumnDef="name">
@@ -36,21 +36,6 @@
       <ng-container matColumnDef="location">
         <mat-header-cell *matHeaderCellDef> Ubicacion </mat-header-cell>
         <mat-cell *matCellDef="let event"> {{event.location}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="inscription">
-        <mat-header-cell *matHeaderCellDef> Inscribirme </mat-header-cell>
-        <mat-cell *matCellDef="let event"> {{event.inscription}} </mat-cell>
-      </ng-container>
-
-
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef> Inscribirme </mat-header-cell>
-        <mat-cell *matCellDef="let event">
-            <button mat-icon-button color="accent" (click)="enroll(event.id)">
-                <mat-icon>edit</mat-icon>
-              </button>
-        </mat-cell>
       </ng-container>
 
 

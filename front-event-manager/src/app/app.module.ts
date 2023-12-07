@@ -29,6 +29,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { EditEventDialogComponentComponent } from './components/edit-event-dialog-component/edit-event-dialog-component.component';
 import { StatusEventComponent } from './components/status-event/status-event.component';
 import { UserEventsComponent } from './components/user-events/user-events.component';
+import { EnrolledEventsComponent } from './components/enrolled-events/enrolled-events.component';
 
 
 
@@ -45,7 +46,8 @@ import { UserEventsComponent } from './components/user-events/user-events.compon
     AllEventsComponent,
     ConfirmDialogComponent,
     EditEventDialogComponentComponent,
-    UserEventsComponent
+    UserEventsComponent,
+    EnrolledEventsComponent
     
   ],
   imports: [
