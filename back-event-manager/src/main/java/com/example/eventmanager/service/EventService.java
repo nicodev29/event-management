@@ -63,7 +63,7 @@ public class EventService {
             event.setName(eventDTO.getName());
             event.setShortDescription(eventDTO.getShortDescription());
             event.setLongDescription(eventDTO.getLongDescription());
-            event.setDateTime(LocalDateTime.now());
+            event.setDateTime(eventDTO.getDateTime());
             event.setOrganizer(eventDTO.getOrganizer());
             event.setLocation(eventDTO.getLocation());
             event.setStatus(eventDTO.getStatus());

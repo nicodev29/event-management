@@ -21,7 +21,7 @@
 
       <ng-container matColumnDef="dateTime">
         <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
-        <mat-cell *matCellDef="let event"> {{event.dateTime}} </mat-cell>
+        <mat-cell *matCellDef="let event"> {{ event.dateTime | date: 'dd/MM/yyyy' }} </mat-cell>
       </ng-container>
 
 

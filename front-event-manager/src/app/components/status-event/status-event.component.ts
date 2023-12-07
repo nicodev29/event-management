@@ -10,8 +10,6 @@ export class StatusEventComponent {
 
   constructor(private router: Router) {}
 
-
-
  cancel() {
     this.router.navigate(['']); // Redirige a la página principal o adecuada
   }
